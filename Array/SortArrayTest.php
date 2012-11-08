@@ -56,4 +56,30 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
 
         $this->assertSame($arrExpect, $arrOrigin);
     }
+
+    /**
+     * test ksort()
+     */
+    public function testKsort()
+    {
+        $arrOrigin = array('b' => 0, 'c' => 2, 'a' => 1);
+        $arrExpect = array('a' => 1, 'b' => 0, 'c' => 2);
+
+        ksort($arrOrigin);
+
+        $this->assertSame($arrExpect, $arrOrigin);
+    }
+
+    /**
+     * test krsort()
+     */
+    public function testKrsort()
+    {
+        $arrOrigin = array('b' => 0, 'c' => 2, 'a' => 1);
+        $arrExpect = array('c' => 2, 'b' => 0, 'a' => 1);
+
+        krsort($arrOrigin);
+
+        $this->assertSame($arrExpect, $arrOrigin);
+    }
 }
