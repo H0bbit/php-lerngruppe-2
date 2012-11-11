@@ -104,7 +104,7 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testArrayMultisort()
     {
-        // @todo array_multisort
+        // @todo array_multisort test
     }
 
     /**
@@ -256,7 +256,7 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testNatcasesort()
     {
-        // @todo natcasesort
+        // @todo natcasesort test
     }
 
     /**
@@ -267,7 +267,7 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testNatsort()
     {
-        // @todo natsort
+        // @todo natsort test
     }
 
     /**
@@ -310,7 +310,7 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testSuffle()
     {
-        // @todo suffle
+        // @todo suffle test
     }
 
     /**
@@ -321,7 +321,7 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testUasort()
     {
-        // @todo uasort
+        // @todo uasort test
     }
 
     /**
@@ -332,7 +332,7 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testUksort()
     {
-        // @todo uksort
+        // @todo uksort test
     }
 
     /**
@@ -343,10 +343,6 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testUsort()
     {
-        // @todo usort
+        // @todo usort test
     }
-
-
-
-
 }
