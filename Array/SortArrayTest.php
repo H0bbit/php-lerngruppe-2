@@ -104,7 +104,46 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testArrayMultisort()
     {
-        // @todo array_multisort test
+        $arrOrigin1 = array(
+            0 => 10,
+            1 => "2",
+            2 => "hugo",
+            3 => "4",
+            4 => 3,
+            5 => "1anna"
+        );
+
+        $arrExpect1 = array(
+            0 => "1anna",
+            1 => "2",
+            2 => "4",
+            3 => "hugo",
+            4 => 3,
+            5 => 10
+        );
+
+        $arrOrigin2 = array(
+            0 => 100,
+            1 => "4gut8",
+            2 => "fritz",
+            3 => "67",
+            4 => 3,
+            5 => 20987
+        );
+
+        $arrExpect2 = array(
+            0 => 20987,
+            1 => "4gut8",
+            2 => "67",
+            3 => "fritz",
+            4 => 3,
+            5 => 100
+        );
+
+        array_multisort($arrOrigin1, $arrOrigin2);
+
+        $this->assertSame($arrExpect1, $arrOrigin1);
+        $this->assertSame($arrExpect2, $arrOrigin2);
     }
 
     /**
@@ -256,7 +295,19 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testNatcasesort()
     {
-        // @todo natcasesort test
+        $arrOrigin = array('IMG0.png', 'img12.png', 'img10.png', 'Img2.png', 'img1.png', 'IMG3.png');
+        $arrExpect = array(
+            0 => 'IMG0.png',
+            4 => 'img1.png',
+            3 => 'Img2.png',
+            5 => 'IMG3.png',
+            2 => 'img10.png',
+            1 => 'img12.png'
+        );
+
+        natcasesort($arrOrigin);
+
+        $this->assertSame($arrExpect, $arrOrigin);
     }
 
     /**
@@ -267,7 +318,19 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testNatsort()
     {
-        // @todo natsort test
+        $arrOrigin = array('IMG0.png', 'img12.png', 'img10.png', 'Img2.png', 'img1.png', 'IMG3.png');
+        $arrExpect = array(
+            0 => 'IMG0.png',
+            5 => 'IMG3.png',
+            3 => 'Img2.png',
+            4 => 'img1.png',
+            2 => 'img10.png',
+            1 => 'img12.png'
+        );
+
+        natsort($arrOrigin);
+
+        $this->assertSame($arrExpect, $arrOrigin);
     }
 
     /**
@@ -303,14 +366,17 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test suffle()
+     * test shuffle()
      * Mischt die Elemente eines Arrays
      *
      * bool shuffle ( array &$array )
      */
-    public function testSuffle()
+    public function testShuffle()
     {
-        // @todo suffle test
+        $arrOrigin = array('b' => 0, 'c' => 2, 'a' => 1);
+        $arrExpect = array('b' => 0, 'c' => 2, 'a' => 1);
+
+        $this->assertNotSame($arrExpect, shuffle($arrOrigin));
     }
 
     /**
@@ -321,7 +387,21 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testUasort()
     {
-        // @todo uasort test
+        $arrOrigin = array(0 => 13, 1 => 40, 2 => 5, 3 => 23, 4 => 19, 5 => 100, 6 => 80);
+        $arrExpect = array(2 => 5, 0 => 13, 4 => 19, 3 => 23, 1 => 40, 6 => 80, 5 => 100);
+
+        uasort(
+            $arrOrigin,
+            function ($a, $b) {
+                if ($a > $b) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        );
+
+        $this->assertSame($arrExpect, $arrOrigin);
     }
 
     /**
@@ -332,7 +412,21 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testUksort()
     {
-        // @todo uksort test
+        $arrOrigin = array('c' => 1, 'a' => 'test', 'b' => 'lol');
+        $arrExpect = array('a' => 'test', 'b' => 'lol', 'c' => 1);
+
+        uksort(
+            $arrOrigin,
+            function ($a, $b) {
+                if ($a > $b) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        );
+
+        $this->assertSame($arrExpect, $arrOrigin);
     }
 
     /**
@@ -343,6 +437,20 @@ class SortArrayTest extends PHPUnit_Framework_TestCase
      */
     public function testUsort()
     {
-        // @todo usort test
+        $arrOrigin = array(0 => 13, 1 => 40, 2 => 5, 3 => 23, 4 => 19, 5 => 100, 6 => 80);
+        $arrExpect = array(0 => 5, 1 => 13, 2 => 19, 3 => 23, 4 => 40, 5 => 80, 6 => 100);
+
+        usort(
+            $arrOrigin,
+            function ($a, $b) {
+                if ($a > $b) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        );
+
+        $this->assertSame($arrExpect, $arrOrigin);
     }
 }
