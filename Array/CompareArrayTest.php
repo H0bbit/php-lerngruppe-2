@@ -16,20 +16,20 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
     public function testArrayDiff()
     {
         $arrOrigin1 = array(
-                "a" => "grün",
-                "rot",
-                "blau",
-                "rot"
+            "a" => "grün",
+            "rot",
+            "blau",
+            "rot"
         );
 
         $arrOrigin2 = array(
-                "b" => "grün",
-                "gelb",
-                "rot"
+            "b" => "grün",
+            "gelb",
+            "rot"
         );
 
         $arrExpect = array(
-                1 => "blau"
+            1 => "blau"
         );
 
         $this->assertSame($arrExpect, array_diff($arrOrigin1, $arrOrigin2));
@@ -51,7 +51,8 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
         );
         $arrOrigin2 = array(
             "a" => "gruen",
-            "gelb", "rot"
+            "gelb",
+            "rot"
         );
 
         $arrExpect = array(
@@ -127,7 +128,7 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
                 if ($a === $b) {
                     return 0;
                 }
-                return ($a > $b)? 1:-1;
+                return ($a > $b) ? 1 : -1;
             }
         );
 
@@ -143,9 +144,9 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
     public function testArrayDiffUkey()
     {
         $arrOrigin1 = array(
-            'blue'  => 1,
-            'red'  => 2,
-            'green'  => 3,
+            'blue' => 1,
+            'red' => 2,
+            'green' => 3,
             'purple' => 4
         );
 
@@ -153,11 +154,11 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
             'green' => 5,
             'blue' => 6,
             'yellow' => 7,
-            'cyan'   => 8
+            'cyan' => 8
         );
 
         $arrExpect = array(
-            'red'  => 2,
+            'red' => 2,
             'purple' => 4
         );
 
@@ -188,32 +189,32 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
     public function testArrayUdiff()
     {
         $arrOrigin1 = array(
-                "a" => "green",
-                "b" => "brown",
-                "c" => "blue",
-                "red"
+            "a" => "green",
+            "b" => "brown",
+            "c" => "blue",
+            "red"
         );
 
         $arrOrigin2 = array(
-                "a" => "green",
-                "yellow",
-                "red"
+            "a" => "green",
+            "yellow",
+            "red"
         );
 
         $arrExpect = array(
-                "b" => "brown",
-                "c" => "blue"
+            "b" => "brown",
+            "c" => "blue"
         );
 
         $arrResult = array_udiff(
-                $arrOrigin1,
-                $arrOrigin2,
-                function ($a, $b) {
-                    if ($a === $b) {
-                        return 0;
-                    }
-                    return ($a > $b)? 1:-1;
+            $arrOrigin1,
+            $arrOrigin2,
+            function ($a, $b) {
+                if ($a === $b) {
+                    return 0;
                 }
+                return ($a > $b) ? 1 : -1;
+            }
         );
 
         $this->assertSame($arrExpect, $arrResult);
@@ -228,33 +229,33 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
     public function testArrayUdiffAssoc()
     {
         $arrOrigin1 = array(
-                "a" => "green",
-                "b" => "brown",
-                "c" => "blue",
-                "red"
+            "a" => "green",
+            "b" => "brown",
+            "c" => "blue",
+            "red"
         );
 
         $arrOrigin2 = array(
-                "a" => "green",
-                "yellow",
-                "red"
+            "a" => "green",
+            "yellow",
+            "red"
         );
 
         $arrExpect = array(
-                "b" => "brown",
-                "c" => "blue",
-                "red"
+            "b" => "brown",
+            "c" => "blue",
+            "red"
         );
 
         $arrResult = array_udiff_assoc(
-                $arrOrigin1,
-                $arrOrigin2,
-                function ($a, $b) {
-                    if ($a === $b) {
-                        return 0;
-                    }
-                    return ($a > $b)? 1:-1;
+            $arrOrigin1,
+            $arrOrigin2,
+            function ($a, $b) {
+                if ($a === $b) {
+                    return 0;
                 }
+                return ($a > $b) ? 1 : -1;
+            }
         );
 
         $this->assertSame($arrExpect, $arrResult);
@@ -269,39 +270,39 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
     public function testArrayUdiffUassoc()
     {
         $arrOrigin1 = array(
-                "a" => "green",
-                "b" => "brown",
-                "c" => "blue",
-                "red"
+            "a" => "green",
+            "b" => "brown",
+            "c" => "blue",
+            "red"
         );
 
         $arrOrigin2 = array(
-                "a" => "green",
-                "yellow",
-                "red"
+            "a" => "green",
+            "yellow",
+            "red"
         );
 
         $arrExpect = array(
-                "b" => "brown",
-                "c" => "blue",
-                "red"
+            "b" => "brown",
+            "c" => "blue",
+            "red"
         );
 
         $arrResult = array_udiff_uassoc(
-                $arrOrigin1,
-                $arrOrigin2,
-                function ($a, $b) {
-                    if ($a === $b) {
-                        return 0;
-                    }
-                    return ($a > $b)? 1:-1;
-                },
-                function ($a, $b) {
-                    if ($a === $b) {
-                        return 0;
-                    }
-                    return ($a > $b)? 1:-1;
+            $arrOrigin1,
+            $arrOrigin2,
+            function ($a, $b) {
+                if ($a === $b) {
+                    return 0;
                 }
+                return ($a > $b) ? 1 : -1;
+            },
+            function ($a, $b) {
+                if ($a === $b) {
+                    return 0;
+                }
+                return ($a > $b) ? 1 : -1;
+            }
         );
 
         $this->assertSame($arrExpect, $arrResult);
@@ -375,9 +376,9 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
     public function testArrayIntersectKey()
     {
         $arrOrigin1 = array(
-            'blue'  => 1,
-            'red'  => 2,
-            'green'  => 3,
+            'blue' => 1,
+            'red' => 2,
+            'green' => 3,
             'purple' => 4
         );
 
@@ -385,7 +386,7 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
             'green' => 5,
             'blue' => 6,
             'yellow' => 7,
-            'cyan'   => 8
+            'cyan' => 8
         );
 
         $arrExpect = array(
@@ -435,9 +436,9 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
     public function testArrayIntersectUkey()
     {
         $arrOrigin1 = array(
-            'blue'  => 1,
-            'red'  => 2,
-            'green'  => 3,
+            'blue' => 1,
+            'red' => 2,
+            'green' => 3,
             'purple' => 4
         );
 
@@ -445,22 +446,29 @@ class CompareArrayTest extends PHPUnit_Framework_TestCase
             'green' => 5,
             'blue' => 6,
             'yellow' => 7,
-            'cyan'   => 8
+            'cyan' => 8
         );
 
         $arrExpect = array(
-            'blue'  => 1,
-            'green'  => 3
+            'blue' => 1,
+            'green' => 3
         );
 
-        $arrResult = array_intersect_ukey($arrOrigin1, $arrOrigin2, function ($key1, $key2) {
-            if ($key1 == $key2)
-                return 0;
-            else if ($key1 > $key2)
-                return 1;
-            else
-                return -1;
-        });
+        $arrResult = array_intersect_ukey(
+            $arrOrigin1,
+            $arrOrigin2,
+            function ($key1, $key2) {
+                if ($key1 == $key2) {
+                    return 0;
+                } else {
+                    if ($key1 > $key2) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                }
+            }
+        );
 
         $this->assertSame($arrExpect, $arrResult);
     }
